@@ -1,0 +1,182 @@
+\documentclass[a4paper]{article}
+\usepackage[12pt]{extsizes} % для того чтобы задать нестандартный 14-ый размер шрифта
+\usepackage{amsmath}
+\usepackage[unicode, pdftex]{hyperref}
+\usepackage[usenames]{color}
+\usepackage[warn]{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amsfonts}
+\usepackage[left=20mm, top=15mm, right=15mm, bottom=15mm, nohead, footskip=10mm]{geometry} % настройки полей документа
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{placeins}
+\usepackage{float}
+\begin{document}
+\author{Горяной Егор}
+\date{21 декабря 2022}
+\title{Теория Гинзбурга-Ландау}
+\maketitle
+В теории Лондонов не учитывались квантовые эффекты сверхпроводимости. Теория Гинзбурга-Ландау стала первой квантовой феноменологической теорией сверхпроводимости.
+
+В теории должно было быть учтено то, что сверхпроводящее
+состояние — более упорядоченное, чем нормальное, и что переход
+из одного в другое (в отсутствие магнитного поля) — это фазовый переход второго рода. Отсюда следовало, что в сверхпроводнике должен существовать какой-то параметр порядка, который
+отличен от нуля при $Т < Т_c$ и обращается в нуль при $Т \geq Т_c$.
+С другой стороны, для создания квантовой теории необходимо
+было ввести какую-то эффективную волновую функцию сверх-
+проводящих электронов $\psi(\textbf{r})$.
+
+В. Л. Гинзбург и Л. Д. Ландау решили объединить эти две величины, решили рассматривать $\psi(\textbf{r})$ в качестве параметра, порядка. Для этого потребовалась большая научная смелость и про-
+никновенная физическая интуиция. В основу теории ГЛ положена,
+разработанная Л.Д. Ландау теория фазовых переходов второго
+рода.\\
+%Пусть на сверхпроводник действует внешнее магнитное поле \textbf{$H_0$}, тогда:
+%$$-M=\frac{H_0}{4\pi}$$
+%При изменении этого поля на $d H_0$ работа магнитного поля на единицу объема равна:
+%$$-MdH_0=\frac{H_0d H_0}{4\pi}$$
+%Тогда полная работа на единицу объема:
+%$$ -\int\limits_{0}^{H_0}Md H_0=\frac{H_0^2}{8\pi} $$
+%Таким образом, плотность свободной энергии единицы объема:
+%$$ F_{SH}=F_{S0}+\frac{H_0^2}{8\pi} $$
+%где $F_{S0}$--- плотность свободной энергии без магнитного поля\\
+%При этом при некотором $H_{cm}$ $F_{SH}$ станет равной плотности свободной энергии материала в нормальном состоянии $F_n$:
+%$$ F_{n} - F_{S0}=\frac{H_{cm}^2}{8\pi} $$
+Рассмотрим сверхпроводник в отсутствие магнитного поля. Согласно теории ГЛ:
+\begin{equation} \label{eq:1}
+F_{S0}=F_n+\alpha|\psi|^2+\frac{\beta}{2}|\psi|^4
+\end{equation}
+где опущены члены более высокого порядка по $|\psi|$. Коэффициенты $\alpha$ и $\beta$ являются функциями температуры.\\
+Минимизируя $F_{S0}$ по $|\psi|^2$ имеем:
+\begin{equation} \label{eq:2}
+|\psi_0|^2=-\frac{\alpha}{\beta}
+\end{equation}
+Видно, что эта величина должна быть неотрицательной.\\
+Подставим полученное выражение в формулу свободной энергии:
+\begin{equation} \label{eq:3}
+F_{S0}-F_n=-\frac{\alpha^2}{2\beta}
+\end{equation}
+
+Для того, чтобы сверхпроводящее состояние было более выгодным с точки зрения энергии, эта разность должна быть отрицательной. Тогда $\beta>0$. В купе с \ref{eq:2} получаем, что $\alpha<0$. При этом при некотором $T_c$ сверхпроводимость пропадает, а значит, что $|\psi_0|^2=0$. Тогда в первом приближении для $\alpha$ имеем $\alpha=\hat\alpha(T-T_c),~\hat\alpha>0$. Поскольку $|\psi_0|^2$ должно обращаться в 0 при $T=T_c$, то $\beta$ в разложении по $T-T_c$ в первом приближении постоянная величина. Итого для коэффициентов $\alpha$ и $\beta$ имеем:
+\begin{itemize}
+    \item $\alpha=\hat\alpha(T-T_c),~T<T_c $
+    \item $\beta=const$
+\end{itemize}
+В присутствии магнитного поля у нас произойдет 'удлинение импульса', а также добавится энергия магнитного поля. Таким образом, для свободной энергии сверхпроводника имеем:
+\begin{equation} \label{eq:4}
+F=F_n+\int{[\alpha|\psi|^2+\frac{\beta}{2}|\psi|^4+\frac{1}{4m}|-i\hbar\nabla\psi-\frac{2e}{c}A\psi|^2+\frac{H^2}{8\pi}}]dV
+\end{equation}
+Дополнительный множитель 2 перед массой и зарядом электрона обусловлен тем, что мы работаем не с единичным электроном, а с куперовскими парами.
+\newpage
+Нужно найти такие $\psi$ и $A$, которые минимизируют $F$. Будем решать эту задачу вариацией.\\
+Поскольку $\psi$ комплексная, то нужно проводить вариацию по $\psi^*$:
+Сначала перепишем некоторые части подынтегрального выражения для более ясных выкладок:
+\begin{itemize}
+    \item $|\psi|^2=\psi\psi^*$
+    \item $|\psi|^2=(\psi\psi^*)^2$
+    \item $|-i\hbar\nabla\psi-\frac{2e}{c}A\psi|^2=(i\hbar\nabla\psi^*+\frac{2e}{c}A\psi^*)(-i\hbar\nabla\psi-\frac{2e}{c}A\psi)$
+\end{itemize}
+$\delta_{\psi^*}F=0$:
+\begin{equation} \label{eq:5}
+\int[\alpha\psi\delta\psi^*+\beta|\psi|^2\psi\delta\psi^*-\frac{1}{4m}(i\hbar\nabla\delta\psi^*+\frac{2e}{c}A\delta\psi^*)(i\hbar\nabla\psi+\frac{2e}{c}A\psi)]dV
+\end{equation}
+Введем обозначение:
+\begin{equation} \label{eq:6}
+v=-(i\hbar\nabla\psi+\frac{2e}{c}A\psi)
+\end{equation}
+Видно, что есть следующее слагаемое:
+$\nabla\delta\psi^*v=\delta\psi^*\nabla v+v\nabla\delta\psi^*$
+Тогда имеем:
+$$ \int[v\nabla\delta\psi^*]dV=-\int[\delta\psi^*\nabla v]dV+\int[\nabla(\psi^*V)]dV $$
+Используя результат выше и применяя теорему Гаусса к \ref{eq:5}, получим:
+\begin{equation} \label{eq:7}
+\int[\alpha\psi+\beta|\psi|^2\psi+\frac{1}{4m}(i\hbar\nabla+\frac{2e}{c}A)^2\psi]\delta\psi^* dV + \oint[-i\hbar\nabla\psi-\frac{2e}{c}A\psi]_n\delta\psi^* dS = 0
+\end{equation}
+В силу того, что 
+Поскольку это должно выполняться для любой вариации $\delta\psi^*$, то подынтегральные выражения равны нулю:
+\begin{equation} \label{eq:8}
+\alpha\psi+\beta|\psi|^2\psi+\frac{1}{4m}(i\hbar\nabla+\frac{2e}{c}A)^2\psi=0
+\end{equation}
+\begin{equation} \label{eq:9}
+(i\hbar\nabla\psi+\frac{2e}{c}A\psi)_n=0    
+\end{equation}
+Теперь будем варьировать по $A$:
+$\delta_A F=0$
+\begin{multline}\label{eq:10}
+\int[\frac{1}{4m}(-\frac{2e}{c}A\psi^*)(-i\hbar\nabla\psi-\frac{2e}{c}\delta A\psi)+ \\
++\frac{1}{4m}(i\hbar\nabla\psi^*-\frac{2e}{c}A\psi^*)(-\frac{2e}{c}\delta A\psi)+ \\
++\frac{1}{4\pi}rot(A)rot(\delta A)] d V
+\end{multline}
+Используя $a\nabla\times b=b\nabla\times a-\nabla(a\times b)$:
+\begin{equation} \label{eq:11}
+rot(A)rot(\delta A) = \delta A \cdot rot(rot(A))-div(\delta A\times rot(A))
+\end{equation}
+Получим, что $\int[rot(rot(A))rot(\delta A)]dV$ равен:
+\begin{equation} \label{eq:12}
+\int[\delta A \cdot rot(rot(A))]dV - \oint[\delta A\times rot(A)]_ndS
+\end{equation}
+Поверхностная вариация равна нулю, поскольку поле на поверхности сверхпроводника задано.
+\newpage
+Окончательно имеем:
+\begin{equation} \label{eq:13}
+\int[\frac{i\hbar e}{2mc}(\psi^*\nabla\psi-\psi\nabla\psi^*)+\frac{2e^2}{mc^2}A|\psi|^2+\frac{1}{4\pi}rot(rot(A))]\delta AdV=0
+\end{equation}
+Итого 2 уравнения теории Гинзбурга-Ландау с граничным условием:
+\begin{itemize}
+    \item  $\alpha\psi+\beta|\psi|^2\psi+\frac{1}{4m}(i\hbar\nabla+\frac{2e}{c}A)^2\psi=0$
+    \item $(i\hbar\nabla\psi+\frac{2e}{c}A\psi)_n=0$
+    \item $j_s=-\frac{i\hbar e}{2m}(\psi^*\nabla\psi-\psi\nabla\psi^*)-\frac{2e^2}{mc}|\psi|^2A$
+\end{itemize}
+где $j_s=\frac{c}{4\pi}rot(rot(A))$\\
+Вводя переобозначения:
+$$\psi\to\frac{\psi}{\psi_0}$$
+$$\xi^2=\frac{\hbar^2}{4m|\alpha|}$$
+$$\lambda^2=\frac{mc^2\beta}{8\pi e^2|\alpha|}$$
+$$\psi=|\psi|e^{i\theta}$$
+Получим более компактную запись уравнений:
+$$ \xi^2(i\nabla+\frac{2\pi}{\Phi_0}A)^2\psi-\psi+\psi|\psi|^2=0 $$
+$$ rot(rot(A))=\frac{|\psi|^2}{\lambda^2}(\frac{\Phi_0}{2\pi}\nabla\theta-A) $$
+Рассмотрим следующий пример:\\
+На поверхность сверхпроводника нанесена тонкая пленка нормального металла. Тогда вблихи поверхности плотность сверхпроводящих электронов понизится. Считая $\psi$ вещественной, первое уравнение ГЛ:
+\begin{equation} \label{eq:14}
+-\xi^2\frac{d^2\psi}{dx^2}-\psi+\psi^3=0
+\end{equation}
+Поскольку пленка тонкая, то можно решать уравнение в виде: $\psi=1-\epsilon(x)$, где $\epsilon(x)\ll1$
+Тогда линеаризуя уравнение:\\
+$$\xi^2\frac{d^2\epsilon}{dx^2}-2\epsilon=0$$
+Тогда $\epsilon\propto e^{\frac{-\sqrt{2}x}{\xi}}$, где $\xi$ --- это характерный масштаб, на котором происходит изменение $\psi$. Эту величину называют длиной когерентности. Величина $\lambda$ называется глубиной проникновения. Ее температурная зависимость аппроксимируется следующей формулой:
+$$\lambda=\frac{\lambda(0)}{\sqrt{1-\displaystyle\bigg(\frac{T}{T_c}\bigg)^4}}$$
+$\lambda(0)$ принимает значение порядка $500-1000$ A. Например, для алюминия $\lambda(0)\approx500$ A, для свинца $\lambda(0)\approx390$ A.
+\newpage
+С помощью $\xi$ и $\lambda$ определяют параметр $\kappa$:
+\begin{equation} \label{eq:15}
+\kappa=\frac{\lambda}{\xi}
+\end{equation}
+У сверхпроводников 1-го рода $\kappa<\frac{1}{\sqrt2}$, а у сверхпроводников 2-го рода $\kappa>\frac{1}{\sqrt2}$.
+Рассмотрим т.н. эффект близости:\\
+Пусть есть контакт между между двумя металлами. Один в сверхпроводящем состоянии --- обозначим его $S$, второй --- в нормальном, обозначим его $N$. Плотность пар в $S$ уменьшается из-за их перехода в $N$. То есть $\psi$ будет меньше единицы вблизи границы $N-S$ даже без магнитного поля. То есть нормальный металл вблизи границы соприкосновения приобретает сверхпроводящие свойства.\\
+Уравнение ГЛ в виде \ref{eq:14} можно решить точно. У него есть первый интеграл:
+$$ C=-\xi^2\bigg(\frac{d\psi}{dx}\bigg)^2-\psi^2+\frac{\psi^4}{2} $$
+Покажем, что это действительно первый интеграл:\\
+$$0=-\xi^2\cdot2\cdot\frac{d\psi}{dx}\cdot\frac{d^2\psi}{dx^2}-2\cdot\psi\cdot\frac{d\psi}{dx}+2\cdot\psi^3\cdot\frac{d\psi}{dx}$$
+Окуда действительно получаем \ref{eq:14}.
+Найдем значение $C$. При $x\to\infty$(уходим глубоко в сверхпроводник) плотность почти не менятся, поэтому $\frac{d\psi}{dx}=0$, а $\psi=1$. Откуда получим, что $C=-\frac{1}{2}$.
+Тогда, интегрируя интеграл движения:
+\begin{equation} \label{eq:16}
+\psi=\tanh\bigg(\frac{x-x_0}{\sqrt2 \xi}\bigg)
+\end{equation}
+В нормальной области тоже можно применить уравнение ГЛ. В ней $\psi$ мало, поэтому можно ограничиться линейным членом в уравнении, длина когерентности при этом там уже другая $\xi_n$:
+\begin{equation} \label{eq:17}
+-\xi_n^2\frac{d^2\psi}{dx^2}+\psi=0
+\end{equation}
+Его решение имеет вид:
+\begin{equation} \label{eq:18}
+\psi=C_1\exp\bigg({\frac{x}{\xi_n}}\bigg)+C_2\exp\bigg(-{\frac{x}{\xi_n}}\bigg)
+\end{equation}
+При этом $\psi\to0$ при $x\to-\infty$(глубоко уходим в нормальный металл). Тогда решение:
+\begin{equation} \label{eq:19}
+\psi=\psi_0\exp{\bigg(-\frac{|x|}{\xi_n}\bigg)}
+\end{equation}
+Отсюда следует, что $\psi$ экспоненциально затухает, проникая в область $N$.
+\end{document}
